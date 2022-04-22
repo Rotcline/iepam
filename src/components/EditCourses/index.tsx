@@ -27,7 +27,7 @@ const Courses = () => {
                 </Link>
             </Close>
             <Title>EDITOR DE CURSOS</Title>
-            <Link to="/editcoursedata">
+            <Link to="/editcourses/new">
                 <Plus src={PlusIMG}/>
             </Link>
             <GridCourses>

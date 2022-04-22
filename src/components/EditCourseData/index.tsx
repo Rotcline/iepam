@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import {
     ImgContainer, FirstContainer, SecondContainer, ThirdContainer, NombreCurso,
     CajaTexto, Texto, FormatedButton, ButtonContainer, Guardar, User
-} from "./EditCurseData.styles";
+} from "./EditCourseData.styles";
 import Header from "../Header";
 import UserIMG from '../../images/User.svg';
 import MinusIMG from '../../images/Minus.svg';
 import PlusIMG from '../../images/Plus.svg';
 import CrossIMG from '../../images/Cross.svg';
-import EditDiapositives from "../EditDiapositives";
+import { Link, useParams } from "react-router-dom";
+import EditSlides from "../EditSlides";
 
-const EditCurseData = () => {
+const EditCourseData = () => {
     const [slideNumber, setSlideNumber] = useState(1);
     const [passScreen, setPassScreen] = useState(false);
     const [nombreCurso, setNombreCurso] = useState('');
@@ -25,22 +26,25 @@ const EditCurseData = () => {
             setPassScreen(true)
         }
     }
-
+    const {courseID} = useParams();
     return (
         <>
             {!passScreen ? <>
                 <Header page=""/>
                 <form action="#" name="formsCurso" >
                     <FirstContainer>
-                        <ImgContainer>
-                            <User src={UserIMG} />
-                        </ImgContainer>
+                        <Link to={`/editmembers/${courseID}`}>
+                            <ImgContainer>
+                                <User src={UserIMG} />
+                            </ImgContainer>
+                        </Link>
 
                         <NombreCurso type="text" placeholder="Nombre del curso" value={nombreCurso} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setNombreCurso(e.target.value) }} name="nombrecurso" />
-
-                        <ImgContainer>
-                            <img src={CrossIMG} />
-                        </ImgContainer>
+                        <Link to={`/editcourses`}>
+                            <ImgContainer>
+                                <img src={CrossIMG} />
+                            </ImgContainer>
+                        </Link>
                     </FirstContainer>
 
                     <SecondContainer>
@@ -59,11 +63,11 @@ const EditCurseData = () => {
                     <Guardar type="submit" onClick={onClick}>GUARDAR</Guardar>
                 </ButtonContainer>
             </>
-                : <EditDiapositives sn={slideNumber} />
+                : <EditSlides sn={slideNumber} />
             }
         </>
     )
 }
 
-export default EditCurseData;
+export default EditCourseData;
 

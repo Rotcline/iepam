@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { CajaTexto, Guardar, Texto } from "../EditCurseData/EditCurseData.styles";
+import { CajaTexto, Guardar, Texto } from "../EditCourseData/EditCourseData.styles";
 import {
     CrossDiv, Container, RadioContainer, FirstContainer, Cross, RadioButton,
     URLinput, BlockContainer, Pregunta, Respuesta, AnswersContainer, ArrowLeft, ArrowRight, ButtonContainer
-} from "./EditDiapositives.styles";
+} from "./EditSlides.styles";
 import Header from "../Header";
 import CrossIMG from "../../images/Cross.svg"
 import ArrowLeftIMG from '../../images/ArrowLeft.png';
 import ArrowRightIMG from '../../images/ArrowRigth.png';
-import EditCurseData from "../EditCurseData";
+import EditCurseData from "../EditCourseData";
 import internal from "stream";
 import { render } from "@testing-library/react";
 
@@ -17,7 +17,7 @@ interface Props {
 }
 
 
-const EditDiapositives: React.FC<Props> = ({ sn }) => {
+const EditSlides: React.FC<Props> = ({ sn }) => {
     //Hooks para tipo de diapositiva
     const [isTextoShown, setTextoShown] = useState(false);
     const [isVideoShown, setVideoShown] = useState(false);
@@ -211,4 +211,4 @@ const EditDiapositives: React.FC<Props> = ({ sn }) => {
     )
 }
 
-export default EditDiapositives;
+export default EditSlides;

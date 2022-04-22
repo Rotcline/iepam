@@ -37,7 +37,7 @@ const EditCourse = ({ courseID, name, description }: Props) => {
     else{DefImage = DefaultIMG1;}
     return(
         <Wrapper>
-            <Link to={`/unity/${courseID}`}>
+            <Link to={`/editcourses/${courseID}`}>
                 <Image src={DefImage}/>
                 <Content>
                     <h1>{name}</h1>

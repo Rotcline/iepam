@@ -5,8 +5,7 @@ import {GlobalStyle} from './GlobalStyle';
 import GlobalFonts from './fonts/fonts';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
-import EditCurseData from './components/EditCurseData';
-import EditDiapositives from './components/EditDiapositives';
+import EditCourseData from './components/EditCourseData';
 import UnityFrame from './components/UnityFrame';
 import LandingPage from './components/LandingPage';
 import Courses from './components/Courses';
@@ -24,6 +23,7 @@ import {
   ApolloProvider
 } from "@apollo/client";
 import EditAdmin from './components/EditAdmin';
+import EditMembers from './components/EditMembers';
 
 
 const client = new ApolloClient({
@@ -44,10 +44,10 @@ function App() {
                   <Route path='/resetpassword' element={<ResetPassword/>} />
                   <Route path='/:courseID' element={<UnityFrame/>} />
                   <Route path='/editcourses' element={<EditCourses />} />
-                  <Route path='/editcoursedata' element={<EditCurseData/>} />
+                  <Route path='/editcourses/:courseID' element={<EditCourseData/>} />
+                  <Route path='/editmembers/:courseID' element={<EditMembers/>} />
                   <Route path='/edituser' element={<UserData/>}/>
                   <Route path='/editadmin' element={<EditAdmin/>}/>
-
                   <Route path='/*' element={<div>505</div>}/>
                 </Routes>
                 <GlobalStyle />

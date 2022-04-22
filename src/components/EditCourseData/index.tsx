@@ -40,11 +40,11 @@ const EditCourseData = () => {
                         </Link>
 
                         <NombreCurso type="text" placeholder="Nombre del curso" value={nombreCurso} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setNombreCurso(e.target.value) }} name="nombrecurso" />
-                        <Link to={`/editcourses`}>
                             <ImgContainer>
-                                <img src={CrossIMG} />
+                                <Link to={`/editcourses`}>
+                                    <img src={CrossIMG} />
+                                </Link>
                             </ImgContainer>
-                        </Link>
                     </FirstContainer>
 
                     <SecondContainer>

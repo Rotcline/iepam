@@ -25,6 +25,32 @@ defmodule Api.Progress do
     Repo.all(UserTrack)
   end
 
+  def list_users_by_course(course_id) do
+    UserTrack
+    |> course_users_query(course_id)
+    |> Repo.all()
+    |> Enum.map(
+      &Map.take(&1, [:course_progress, :user_id])
+    )
+  end
+
+  defp course_users_query(query, course_id) do
+    from(u in query, where: u.course_id == ^course_id)
+  end
+
+  def list_courses_by_user(user_id) do
+    UserTrack
+    |> user_courses_query(user_id)
+    |> Repo.all()
+    |> Enum.map(
+      &Map.take(&1, [:course_progress, :course_id])
+    )
+  end
+
+  defp user_courses_query(query, user_id) do
+    from(u in query, where: u.user_id == ^user_id)
+  end
+
   @doc """
   Gets a single user_track.
 

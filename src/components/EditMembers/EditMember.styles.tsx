@@ -72,5 +72,6 @@ export const UserInCourse = styled.div`
     width: 100vw;
     font-size:var(--fontSuperBig);
     font-weight:5vw;
+    font-family: 'OpenSansRegular';
 `;
 

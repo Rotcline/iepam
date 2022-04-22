@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "../Header";
 import { ButtonContainer, Container, Cross, Save, SelectorWrapper, UserInCourse } from "./EditMember.styles";
 import CrossIMG from "../../images/Cross.svg"
@@ -10,6 +10,8 @@ const EditMembers = () => {
     const data = useGetUsers();
     const [userID, setUserID] = useState(0)
     var obj :any;
+    const {courseID} = useParams();
+
     if (data === "Loading..."){ return <div>Loading...</div> }
     const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault();
@@ -18,7 +20,7 @@ const EditMembers = () => {
         console.log(value);
         if (name === 'user') setUserID(Number(value));
     }
-     return(
+    return(
         <>
             <Header page=""/>
             <Container>
@@ -28,7 +30,7 @@ const EditMembers = () => {
                             <option key={user.id} value = {user.id}>{user.email}</option>
                         ))}
                     </select>
-                    <Link to="/courses">
+                    <Link to={`/editcourses/${courseID}`}>
                         <Cross>
                             <img src={CrossIMG} alt=""/>
                         </Cross>

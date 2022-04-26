@@ -9,22 +9,21 @@ export const Container = styled.div `
 `;
 
 export const ImgContainer = styled.div `
-    position:absolute;
+    position:fixed;
     width:10vw;
-    margin-top:12.5vh;
+    margin-top: 12.5vh;
     margin-left:14vw;
     display: flex;
-    align-items: center;
-    justify-content: center;
     img{
-        width:5vw;
+        width: 5vw;
     }
 `;
 
 export const NombreCurso = styled.input `
     border: 2px solid var(--purple);
     border-radius: 20px;
-    width:50vw;
+    width: 50vw;
+    height: 5vh;
     text-align: center;
     font-size: 1.7em;
 
@@ -39,7 +38,7 @@ export const NombreCurso = styled.input `
 `;
 
 export const CajaTexto = styled.textarea `
-    margin-top:10vh;
+    margin-top: 10vh;
     border: 2px solid var(--purple);
     border-radius: 20px;
     padding: 1vh 1.5vw;
@@ -61,5 +60,8 @@ export const Plus = styled.button`
     background-color: transparent;
     img{
         width:4vw;
+    }
+    &:hover{
+        cursor: pointer;
     }
 `;

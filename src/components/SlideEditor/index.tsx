@@ -31,19 +31,19 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
         const buttonID = e.currentTarget.id;
 
         if (name === 'question' || name === 'url') setDescription(value);
-        if (name === 'answerText1') setAnswer1(value)
-        if (name === 'answerText2') setAnswer2(value)
-        if (name === 'answerText3') setAnswer3(value)
-        if (name === 'answerText4') setAnswer4(value)
+        if (name === 'answerText0') setAnswer1(value)
+        if (name === 'answerText1') setAnswer2(value)
+        if (name === 'answerText2') setAnswer3(value)
+        if (name === 'answerText3') setAnswer4(value)
 
         if (buttonID === "Format1" && buttonValue === true) { setIsQuestion(false); setIsVideo(true); }
         if (buttonID === "Format2" && buttonValue === true) { setIsQuestion(true); setIsVideo(false); }
         if (buttonID === "Format0" && buttonValue === true) { setIsVideo(false); setIsQuestion(false); }
 
-        if (buttonID === "answerText1" && buttonValue === true) setCorrectAns(1)
-        if (buttonID === "answerText1" && buttonValue === true) setCorrectAns(2)
-        if (buttonID === "answerText1" && buttonValue === true) setCorrectAns(3)
-        if (buttonID === "answerText1" && buttonValue === true) setCorrectAns(4)
+        if (value === "0" && buttonValue === true) setCorrectAns(1)
+        if (value === "1" && buttonValue === true) setCorrectAns(2)
+        if (value === "2" && buttonValue === true) setCorrectAns(3)
+        if (value === "3" && buttonValue === true) setCorrectAns(4)
     }
 
     const handleInputText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

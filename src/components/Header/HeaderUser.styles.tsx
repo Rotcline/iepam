@@ -30,7 +30,7 @@ export const Lock = styled.img `
 `;
 
 export const HeaderWrapper = styled.header `
-    max-height: 100px;
+    max-height: 7.8vh;
     display: flex;
     position: sticky;
     border-bottom: 2px solid var(--purple);

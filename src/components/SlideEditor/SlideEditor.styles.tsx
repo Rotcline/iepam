@@ -143,6 +143,9 @@ export const Plus = styled.button`
     img{
         width:4vw;
     }
+    &:hover{
+        cursor: pointer;
+    }
 `;
 
 export const ArrowBack = styled.button`

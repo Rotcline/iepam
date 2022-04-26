@@ -158,4 +158,7 @@ export const ArrowBack = styled.button`
     img{
         width:6vw;
     }
+    &:hover{
+        cursor: pointer;
+    }
 `;

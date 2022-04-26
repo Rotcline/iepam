@@ -83,11 +83,13 @@ export const LoginButton = styled.button`
     border-radius: 18px;
     width: 520px;
     border:0px;
-    background-color:var(--purple); 
+    background-color:var(--purple);
+    transition: background-color 0.25s;
 
-    &hover
+    &:hover
     {
         background-color: #776742;
+        cursor: pointer;
     }
 `;
 
@@ -101,10 +103,12 @@ export const  RegisterButton = styled.button`
     margin:1vh;
     border:0px;
     background-color:var(--purple);
+    transition: background-color 0.25s;
 
-    &hover
+    &:hover
     {
         background-color: #776742;
+        cursor: pointer;
     }
 `;
 
@@ -118,11 +122,12 @@ export const ForgotPasswordButton = styled.button`
     margin:1vh;
     border:0px;
     background-color:var(--golden);
-    bor
+    transition: background-color 0.25s;
 
-    &hover
+    &:hover
     {
         background-color: #776742;
+        cursor: pointer;
     }
 `;
 

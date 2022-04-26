@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import { Wrapper, Image, Content } from "./Course.styles";
+import { Wrapper, Image, Content, ButtonOptions, ButtonBox } from "./CardAdminCourse.styles";
 import DefaultIMG1 from "../../images/def1.jpeg"
 import DefaultIMG2 from "../../images/def2.jpeg"
 import DefaultIMG3 from "../../images/def3.jpeg"
@@ -12,6 +12,8 @@ import DefaultIMG7 from "../../images/def7.jpeg"
 import DefaultIMG8 from "../../images/def8.jpeg"
 import DefaultIMG9 from "../../images/def9.jpeg"
 import DefaultIMG10 from "../../images/def10.jpeg"
+import Cross from "../../images/Cross.png"
+import Check from "../../images/Check.png"
 
 
 type Props = {
@@ -20,7 +22,7 @@ type Props = {
   description :string
 };
 
-const Course = ({ courseID, name, description }: Props) => {
+const CardAdminCourse = ({ courseID, name, description }: Props) => {
     let DefImage
     if(courseID%10 === 1){DefImage = DefaultIMG1;}
     else if(courseID%10 === 2){DefImage = DefaultIMG2;}
@@ -34,18 +36,20 @@ const Course = ({ courseID, name, description }: Props) => {
     else if(courseID%10 === 2){DefImage = DefaultIMG10;}
     else{DefImage = DefaultIMG1;}
     return(
-        <div>
-            <Link to={`/${courseID}`}>
-                <Wrapper>
-                    <Image src={DefImage}/>
-                    <Content>
-                        <h1>{name}</h1>
-                        <br/>
-                        <div>{description}</div>
-                    </Content>
-                </Wrapper>
+        <Wrapper>
+            <Link to={`/editcourses/${courseID}`}>
+                <Image src={DefImage}/>
+                <Content>
+                    <h1>{name}</h1>
+                    <br/>
+                    <div>{description}</div>
+                </Content>
             </Link>
-        </div>
+            <ButtonBox>
+                <ButtonOptions position={"Cross"}><img src={Cross} alt="" /></ButtonOptions>
+                <ButtonOptions position={"Check"}><img src={Check} alt="" /></ButtonOptions>
+            </ButtonBox>
+        </Wrapper>
     )
 }
-export default Course;
+export default CardAdminCourse;

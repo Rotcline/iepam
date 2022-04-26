@@ -1,11 +1,11 @@
 import React from "react";
-import Course from "../Course";
+import Course from "../CardCourse";
 import Header from "../Header";
 import { useCoursesHooks } from "../../hooks/useCourseHooks";
 
-import { Title, GridCourses } from "./Courses.styles";
+import { Title, GridCourses } from "./UserCourses.styles";
 
-const Courses = () => {
+const UserCourses = () => {
     
     let data = useCoursesHooks()
     if (data === "Loading...") return <div>Loading...</div>
@@ -28,4 +28,4 @@ const Courses = () => {
     );
 };
 
-export default Courses;
+export default UserCourses;

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Header from "../Header";
-import { ButtonContainer, Container, Cross, Save, SelectorWrapper, UserInCourse } from "./EditMember.styles";
+import { ButtonContainer, Container, Cross, Save, SelectorWrapper, UserInCourse } from "./CourseMembersEditor.styles";
 import CrossIMG from "../../images/Cross.svg"
-import { UPDATE, useGetUsers } from "../../hooks/useFetchUser";
-import { useMutation } from "@apollo/client";
+import { useGetUsers } from "../../hooks/useFetchUser";
 
-const EditMembers = () => {
+const CourseMembersEditor = () => {
     const data = useGetUsers();
     const [userID, setUserID] = useState(0)
     var obj :any;
@@ -23,6 +22,9 @@ const EditMembers = () => {
     return(
         <>
             <Header page=""/>
+            <Link to={`/editcourses/${courseID}`}>
+                <Cross src={CrossIMG} />
+            </Link>
             <Container>
                 <SelectorWrapper>
                     <select onChange={ e => handleSelect(e) } name='user' value={userID}>
@@ -30,11 +32,6 @@ const EditMembers = () => {
                             <option key={user.id} value = {user.id}>{user.email}</option>
                         ))}
                     </select>
-                    <Link to={`/editcourses/${courseID}`}>
-                        <Cross>
-                            <img src={CrossIMG} alt=""/>
-                        </Cross>
-                    </Link>
                 </SelectorWrapper>
                 {data.users.map((user :any)  => (
                     <UserInCourse key = {user.id}>{user.email}</UserInCourse>
@@ -57,4 +54,4 @@ const EditMembers = () => {
     )
 };
 
-export default EditMembers;
+export default CourseMembersEditor;

@@ -2,13 +2,14 @@ import { createHashHistory } from "history";
 import styled from "styled-components";
 
 export const Container = styled.div`
-display: flex;
-            width: 100vw;
-            height: 10vh;
-            justify-content: space-around;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100vw;
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    margin-top:10vh;
 `;
 
 
@@ -89,24 +90,13 @@ export const FormXP = styled.div`
 `;
 
 
-export const Cross = styled.button`
-    outline: 0px;
-    margin: 0px;
-    background-color: white;
-    border: 0px;
-    img
-    {
-        width: 6vw;
-        height: 4vh;
-    }
+export const Cross = styled.img `
+    position:absolute;
+    width:3vw;
+    top:15vh;
+    right:6vw;
 `;
 
-export const Close = styled.div`
-    flex-basis: 100%;
-    text-align: right;
-    margin-right: 2vw;
-    margin-top: 5vh;
-`;
 
 export const ButtonContainer = styled.div `
     display:flex;

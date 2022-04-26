@@ -40,3 +40,10 @@ export const Save = styled.button `
         cursor: pointer;
     }
 `;
+
+export const Cross = styled.img `
+    position:absolute;
+    width:3vw;
+    top:15vh;
+    right:6vw;
+`;

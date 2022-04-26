@@ -11,12 +11,9 @@ interface Props {
   page: string;
 }
 
-
 const Header: React.FC<Props> = ({page}) => {
     var userID = Number(window.localStorage.getItem("loggedUserID"));
-    //console.log(userID);
     let data = useGetUser(userID);
-    //console.log(data);
     if (data === "Loading..."){ return <div>Loading...</div> }
     if(data === "Error"){
         return (

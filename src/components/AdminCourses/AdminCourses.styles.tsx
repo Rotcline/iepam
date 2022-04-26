@@ -7,6 +7,7 @@ export const Title = styled.div `
     display: flex;
     flex-direction: column;
     text-align: center;
+    margin-top:10vh;
 `;
 
 export const GridCourses = styled.div `
@@ -15,24 +16,14 @@ export const GridCourses = styled.div `
     display: flex;
 `;
 
-export const Cross = styled.button`
-    outline: 0px;
-    margin: 0px;
-    background-color: white;
-    border: 0px;
-    img
-    {
-        width: 6vw;
-        height: 4vh;
-    }
+export const Cross = styled.img `
+    position:absolute;
+    width:3vw;
+    top:15vh;
+    right:6vw;
 `;
 
-export const Close = styled.div`
-    flex-basis: 100%;
-    text-align: right;
-    margin-right: 2vw;
-    margin-top: 5vh;
-`;
+
 
 export const Plus = styled.img`
     flex-basis: 100%;

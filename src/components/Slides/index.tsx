@@ -15,7 +15,7 @@ const unityContext = new UnityContext({
   });
 
 
-const UnityFrame = () =>  {
+const Slides = () =>  {
     const {courseID} = useParams();
     const data = useFetchSlidesByCourse(Number(courseID));
     if(data !== "Loading..."){
@@ -33,4 +33,4 @@ const UnityFrame = () =>  {
     )
 };
 
-export default UnityFrame;
+export default Slides;

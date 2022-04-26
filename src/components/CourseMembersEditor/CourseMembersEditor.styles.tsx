@@ -10,17 +10,11 @@ display: flex;
             width: 100vw;
 `;
 
-export const Cross = styled.button`
-    outline: 0px;
-    margin: 0px;
-    margin-right:5vw;
-    background-color: white;
-    border: 0px;
-    img
-    {
-        width: 6vw;
-        height: 4vh;
-    }
+export const Cross = styled.img `
+    position:absolute;
+    width:3vw;
+    top:15vh;
+    right:6vw;
 `;
 
 export const ButtonContainer = styled.div `

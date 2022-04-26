@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useGetUsers } from "../../hooks/useFetchUser";
 import Header from "../Header";
-import { ButtonContainer, Save, Wrapper } from "./EditAdmin.styles";
+import { ButtonContainer, Cross, Save, Wrapper } from "./RoleEditor.styles";
 import { UPDATE } from "../../hooks/useFetchUser";
 import { useMutation } from "@apollo/client";
+import { Link } from "react-router-dom";
+import CrossIMG from "../../images/Cross.svg"
 
-const EditAdmin = () => {
+
+const RoleEditor = () => {
     const data = useGetUsers();
     const [update] = useMutation(UPDATE);
     const [userID, setUserID] = useState(0)
@@ -24,6 +27,9 @@ const EditAdmin = () => {
     return (
         <>
             <Header page=""/>
+            <Link to="/editcourses">
+                <Cross src={CrossIMG} alt=""/>
+            </Link>
             <Wrapper>
                 <select onChange={ e => handleSelect(e) } name='user' value={userID}>
                     {data.users.map((user :any)  => (
@@ -54,4 +60,4 @@ const EditAdmin = () => {
       );
 }
 
-export default EditAdmin;
+export default RoleEditor;

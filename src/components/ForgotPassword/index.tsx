@@ -13,7 +13,7 @@ const ForgotPassword = () => {
                 <Link to="/resetpassword"><Cross src={CrossIMG} alt="Cross SVG"/></Link>
             </Container>
             <Texto>
-                Se ha reenviado un enlace a tu correo para que reinicies tu contraseña
+                    Se ha reenviado un enlace a tu correo para que reinicies tu contraseña.
             </Texto>
         </>
     );

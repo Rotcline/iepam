@@ -20,6 +20,8 @@ export const Texto = styled.div `
     padding: 10vh 10vw;
     display: flex;
     align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
     @media (max-width: 600px){
         font-size: 2em;
     }

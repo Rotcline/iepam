@@ -73,7 +73,7 @@ export const Question = styled.input`
     width: 100vw;
     margin-left:20vw;
     margin-right:20vw;
-    height:20vh;
+    height:8vh;
     text-align: center;
     font-size: var(--fontBig);
     padding: 0 1vw;
@@ -153,6 +153,21 @@ export const ArrowBack = styled.button`
     border:none;
     top:46vh;
     left:4vw;
+    border-radius:100vw;
+    background-color: transparent;
+    img{
+        width:6vw;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+`;
+
+export const ArrowForward = styled.button`
+    position:absolute;
+    border:none;
+    top:46vh;
+    right:4vw;
     border-radius:100vw;
     background-color: transparent;
     img{

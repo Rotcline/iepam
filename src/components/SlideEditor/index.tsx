@@ -53,17 +53,23 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
     const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
         //Si el indice en el que estamos es el ultimo y no existe en el array se hace push
         if(index >= data.length){
-            data.push({ description: description, order: index, video: isVideo, question: isQuestion, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4, correctAns: correctAns, courseID: 1 })
-            console.log(data);
-            setDescription("");
-            setAnswer1("");
-            setAnswer2("");
-            setAnswer3("");
-            setAnswer4("");
-            setCorrectAns(0);
-            setIsQuestion(false);
-            setIsVideo(false);
-            setIndex(index+1);
+            if(description !== ""){
+                data.push({ description: description, order: index, video: isVideo, question: isQuestion, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4, correctAns: correctAns, courseID: 1 })
+                console.log(data);
+                setDescription("");
+                setAnswer1("");
+                setAnswer2("");
+                setAnswer3("");
+                setAnswer4("");
+                setCorrectAns(0);
+                setIsQuestion(false);
+                setIsVideo(false);
+                setIndex(index+1);
+            }
+            else{
+                window.alert("Porfavor ingresa el texto")
+            }
+
         }
         //Si no estamos por insertar algo al array
         else{

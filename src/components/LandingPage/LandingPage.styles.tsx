@@ -88,7 +88,7 @@ export const LoginButton = styled.button`
 
     &:hover
     {
-        background-color: #776742;
+        background-color: #26085f;
         cursor: pointer;
     }
 `;
@@ -107,7 +107,7 @@ export const  RegisterButton = styled.button`
 
     &:hover
     {
-        background-color: #776742;
+        background-color: #26085f;
         cursor: pointer;
     }
 `;
@@ -158,17 +158,3 @@ export const ErrorBox = styled.div<Props>`
 
 
 `;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

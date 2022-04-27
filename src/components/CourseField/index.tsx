@@ -10,6 +10,26 @@ interface Props {
 
 const CourseField: React.FC<Props> = ({ callback }) => {
     const { courseID } = useParams();
+    const [nombreCurso, setNombreCurso] = useState("");
+    const [descripcionCurso, setDescripcionCurso] = useState("");
+    
+    const handleInputTXTArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setDescripcionCurso(e.currentTarget.value);
+    }
+
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNombreCurso(e.currentTarget.value)
+    }
+
+    const handleBack = () => {
+        if(nombreCurso !== "" && descripcionCurso !== ""){
+            callback();
+        }
+        else{
+            window.alert("Completa los datos solicitados");
+        }
+    }
+
     return (
         <>
             <Link to={`/editmembers/${courseID}`}>
@@ -22,13 +42,20 @@ const CourseField: React.FC<Props> = ({ callback }) => {
                     type="text"
                     placeholder="Nombre del curso"
                     name="nombrecurso"
+                    onChange={handleInput}
+                    value={nombreCurso}
+                    required
                 />
                 <CajaTexto 
                     name="descripcion"
                     placeholder="Descripción"
+                    onChange={handleInputTXTArea}
+                    value={descripcionCurso}
+                    required
+                    
                 />
             </Container>
-            <Plus onClick={callback}>
+            <Plus onClick={handleBack}>
                 <img src={PlusIMG}/>
             </Plus>
         </>

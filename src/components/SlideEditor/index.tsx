@@ -111,25 +111,40 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
             callback();
         }
         else{
-            //Si hubo cambios actualizamos los valores
-            data[index].description = description;
-            data[index].answer1 = answer1;
-            data[index].answer2 = answer2;
-            data[index].answer3 = answer3;
-            data[index].answer4 = answer4;
-            data[index].correctAns = correctAns;
-            data[index].question = isQuestion;
-            data[index].video = isVideo;
-            //Cargamos los valores de la slide anterior
-            setDescription(data[index-1].description);
-            setAnswer1(data[index-1].answer1);
-            setAnswer2(data[index-1].answer2);
-            setAnswer3(data[index-1].answer3);
-            setAnswer4(data[index-1].answer4);
-            setCorrectAns(data[index-1].correctAns);
-            setIsQuestion(data[index-1].question);
-            setIsVideo(data[index-1].video);
-            setIndex(index-1);
+            //Si el indice es igual a la longitud del array significa que esta adelantado 
+            if(index === data.length){
+                //Cargamos los valores de la slide anterior
+                setDescription(data[index-1].description);
+                setAnswer1(data[index-1].answer1);
+                setAnswer2(data[index-1].answer2);
+                setAnswer3(data[index-1].answer3);
+                setAnswer4(data[index-1].answer4);
+                setCorrectAns(data[index-1].correctAns);
+                setIsQuestion(data[index-1].question);
+                setIsVideo(data[index-1].video);
+                setIndex(index-1);
+            }
+            else{
+                //Si hubo cambios actualizamos los valores
+                data[index].description = description;
+                data[index].answer1 = answer1;
+                data[index].answer2 = answer2;
+                data[index].answer3 = answer3;
+                data[index].answer4 = answer4;
+                data[index].correctAns = correctAns;
+                data[index].question = isQuestion;
+                data[index].video = isVideo;
+                //Cargamos los valores de la slide anterior
+                setDescription(data[index-1].description);
+                setAnswer1(data[index-1].answer1);
+                setAnswer2(data[index-1].answer2);
+                setAnswer3(data[index-1].answer3);
+                setAnswer4(data[index-1].answer4);
+                setCorrectAns(data[index-1].correctAns);
+                setIsQuestion(data[index-1].question);
+                setIsVideo(data[index-1].video);
+                setIndex(index-1);
+            }
         }
     }
 

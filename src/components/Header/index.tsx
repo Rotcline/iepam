@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ImgContainer, Logo, User, HeaderWrapper, Lock, UserContainer } from "./HeaderUser.styles";
+import { ImgContainer, Logo, User, HeaderWrapper, Lock } from "./HeaderUser.styles";
 import LogoIMG from "../../images/Logo.png";
 import UserIMG from "../../images/User.png";
 import LockIMG from "../../images/Lock.png";
@@ -54,11 +54,9 @@ const Header: React.FC<Props> = ({page}) => {
                         </Link>
                     </ImgContainer> 
                 :
-                    <UserContainer>
-                        <Link to="/edituser">
-                            <User src={UserIMG} />
-                        </Link>
-                    </UserContainer>
+                    <Link to="/edituser">
+                        <User src={UserIMG} />
+                    </Link>
                 }
             </HeaderWrapper>
         </>

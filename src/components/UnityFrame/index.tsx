@@ -4,26 +4,31 @@ import "./UnityFrame.css";
 import Unity, { UnityContext } from "react-unity-webgl";
 import Header from "../Header";
 import { useFetchSlidesByCourse } from "../../hooks/useFetchSlides";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 const unityContext = new UnityContext({
-    loaderUrl: "build/max.loader.js",
-    dataUrl: "build/max.data",
-    frameworkUrl: "build/max.framework.js",
-    codeUrl: "build/max.wasm",
+    loaderUrl: "build/apolo.loader.js",
+    dataUrl: "build/apolo.data",
+    frameworkUrl: "build/apolo.framework.js",
+    codeUrl: "build/apolo.wasm",
   });
 
 
 const UnityFrame = () =>  {
     const {courseID} = useParams();
     const data = useFetchSlidesByCourse(Number(courseID));
-
+    const navigate = useNavigate();
     if(data !== "Loading..."){
+      console.log("hola");
+      console.log("perro");
       console.log(JSON.stringify(data));
-      unityContext.send("SlideManager", "getData", JSON.stringify(data));
-
+      //unityContext.send("SlideManager", "getData", JSON.stringify(data));
     }
+    
+    const buttonClick=()=>{
+      unityContext.send("SlideManager", "getData", JSON.stringify(data));}
+
 
     const [video, setVideo] = useState("false");
     const [progress, setProgress] = useState(0);
@@ -34,11 +39,36 @@ const UnityFrame = () =>  {
         console.log(video);
       });
     }, []);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(function () {
+    unityContext.on("loaded", function () {
+      unityContext.send("SlideManager", "getData", JSON.stringify(data));
+      setIsLoaded(true);
+    });
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log(JSON.stringify(data));
+      unityContext.send("SlideManager", "getData", JSON.stringify(data));
+    }, 5000);
+    //return () => clearTimeout(timer);
+  }, []);
+
+    useEffect(function () {
+      unityContext.on("loaded", function (video) {
+        // unityContext.send("SlideManager", "getData", JSON.stringify(data));
+        console.log("cargado");
+      });
+    }, []);
+
 
     useEffect(function () {
         unityContext.on("Close", function (progress) {
             setProgress(progress);
-            console.log(progress)
+            console.log(progress);
+            navigate("/courses")   
         });
     }, []);
 
@@ -46,6 +76,9 @@ const UnityFrame = () =>  {
     return( 
         <>
             <Header page=""/>
+            <iframe width="420" height="315"
+              src={video}>
+            </iframe>
             <div className="unity-container">
                 <Unity className="unity-canvas" unityContext={unityContext} />
             </div>

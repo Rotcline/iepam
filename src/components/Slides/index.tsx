@@ -9,10 +9,10 @@ import { VideoContainer } from "./UnityFrame.styles";
 
 
 const unityContext = new UnityContext({
-  loaderUrl: "build/apolo.loader.js",
-  dataUrl: "build/apolo.data",
-  frameworkUrl: "build/apolo.framework.js",
-  codeUrl: "build/apolo.wasm",
+  loaderUrl: "build/avemaria.loader.js",
+  dataUrl: "build/avemaria.data",
+  frameworkUrl: "build/avemaria.framework.js",
+  codeUrl: "build/avemaria.wasm",
 });
 
 
@@ -31,6 +31,13 @@ const Slides = () => {
   }, []);
 
   useEffect(function () {
+    unityContext.on("iCanSend", function () {
+      console.log(JSON.stringify(data));
+      unityContext.send("SlideManager", "getData", JSON.stringify(data));
+    });
+  }, []);
+
+  useEffect(function () {
     unityContext.on("Close", function (progress) {
       console.log(progress);
       setProgress(progress);
@@ -38,6 +45,7 @@ const Slides = () => {
     });
   }, []);
 
+  /*
   useEffect(() => {
     const timer = setTimeout(() => {
       if (data !== "Loading...") {
@@ -45,7 +53,7 @@ const Slides = () => {
         unityContext.send("SlideManager", "getData", JSON.stringify(data));
       }
     }, 5000);
-  }, []);
+  }, []);*/
 
   return (
     <>

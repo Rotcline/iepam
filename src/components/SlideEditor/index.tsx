@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Container, RadioContainer, RadioButton, Plus, ArrowBack, URLInput, TextBox, Question, Answer, RadioButtonQuestion, RadioContainerQuestion, ArrowForward } from "./SlideEditor.styles";
+import { Container, RadioContainer, RadioButton, Plus, ArrowBack, URLInput, TextBox, Question, Answer, RadioButtonQuestion, RadioContainerQuestion, ArrowForward, Guardar, TrashButton } from "./SlideEditor.styles";
 
 import PlusIMG from "../../images/Plus.svg";
 import ArrowBackIMG from "../../images/ArrowLeft.png";
 import ArrowFwdIMG from "../../images/ArrowRight.png";
+import TrashCan from "../../images/trash.svg";
 
 import { useParams } from "react-router-dom";
 
@@ -154,6 +155,21 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
         }
     }
 
+    const handleTrashButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+        //Cargamos los valores de la slide anterior
+        setDescription(data[index-1].description);
+        setAnswer1(data[index-1].answer1);
+        setAnswer2(data[index-1].answer2);
+        setAnswer3(data[index-1].answer3);
+        setAnswer4(data[index-1].answer4);
+        setCorrectAns(data[index-1].correctAns);
+        setIsQuestion(data[index-1].question);
+        setIsVideo(data[index-1].video);
+        setIndex(index-1);
+        //Eliminamos el ultimo elemento 
+        data.pop();
+    }
+
     return (
         <>
             <Container>
@@ -269,6 +285,18 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
             <ArrowBack onClick={handlePrev}>
                 <img src={ArrowBackIMG} />
             </ArrowBack>
+
+            { index === data.length -1 ?
+                <>
+                    <Container>
+                        <Guardar>Guardar</Guardar>
+                        <TrashButton onClick={handleTrashButton}>
+                            <img src={TrashCan}/>
+                        </TrashButton>
+                    </Container>
+                </>
+                : <></> 
+            }
         </>
     )
 }

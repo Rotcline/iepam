@@ -177,3 +177,33 @@ export const ArrowForward = styled.button`
         cursor: pointer;
     }
 `;
+
+export const Guardar = styled.button `
+    border: 2px solid var(--purple);
+    border-radius: 25px;
+    padding: 0.5vh 10vw;
+    margin-top: 5vh;
+    background-color: var(--purple);
+    color: white;
+    font-size: 1.7em;
+    transition: background-color 0.25s;
+    &:hover{
+        background-color: #26085f;
+        cursor: pointer;
+    }
+`;
+
+export const TrashButton = styled.button`
+    position:absolute;
+    border:none;
+    top:13vh;
+    left:5vw;
+    border-radius:100vw;
+    background-color: transparent;
+    img{
+        width:4vw;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+`;

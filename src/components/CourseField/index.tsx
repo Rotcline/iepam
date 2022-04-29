@@ -15,6 +15,9 @@ const CourseField: React.FC<Props> = ({ callback }) => {
     const [nombreCurso, setNombreCurso] = useState("");
     const [descripcionCurso, setDescripcionCurso] = useState("");
     const [createCourse] = useMutation(CREATE_COURSE);
+    const [newCourse, isNewCourse] = useState(false);
+
+
     let obj: any;
 
     const handleInputTXTArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -59,6 +62,7 @@ const CourseField: React.FC<Props> = ({ callback }) => {
                     
                 />
             </Container>
+            {courseID==="new"?
             <form onClick={e => {
                 e.preventDefault();
                 createCourse({variables: {active: true, description: descripcionCurso, name: nombreCurso} })
@@ -70,6 +74,9 @@ const CourseField: React.FC<Props> = ({ callback }) => {
                     <img src={PlusIMG}/>
                 </Plus>
             </form>
+                : <Plus onClick={handleBack}>
+                    <img src={PlusIMG} />
+                </Plus> }
         </>
     )
 }

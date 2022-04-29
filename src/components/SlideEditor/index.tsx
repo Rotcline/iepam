@@ -295,7 +295,7 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
                 <>
                     <form onSubmit={e => {
                         e.preventDefault();
-                        uploadSlides({variables: {params: data} })
+                        uploadSlides({variables: {params: data}})
                         .then(data => obj = data).then( () => {
                             console.log(obj.data);
                             navigate('/courses');

@@ -9,7 +9,7 @@ defmodule Api.Content.Slide do
     field :answer4, :string
     field :correct_ans, :integer
     field :description, :string
-    field :order, :string
+    field :order, :integer
     field :question, :boolean, default: false
     field :video, :boolean, default: false
     belongs_to :course, Api.Subject.Course, foreign_key: :course_id

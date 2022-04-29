@@ -45,6 +45,23 @@ defmodule ApiWeb.Resolvers.Content do
     {:ok, Api.Content.list_slides_by_course(course_id)}
   end
 
+
+  def create_slides(args, _context) do
+    IO.inspect(args)
+    IO.inspect(is_map(args))
+    paramsList = args[:params]
+    Enum.each(paramsList, fn (element) ->
+      #%{course_id: course_id} = element
+      course_id = element[:course_id]
+      course = Api.Subject.get_course!(course_id)
+      case Api.Content.create_slide(course, element) do
+        {:ok, %Slide{} = slide} -> {:ok, IO.inspect("vavav")}
+        {:error, changeset} -> {:error, IO.inspect(changeset.errors)}
+      end
+    end)
+    {:ok, "ok"}
+  end
+
   @desc """
   def create_slide(%{description: description, order: order, video: video,
                      question: question, answer1: answer1, answer2: answer2,

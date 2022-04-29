@@ -9,34 +9,6 @@ import { VideoContainer } from "./UnityFrame.styles";
 
 
 const unityContext = new UnityContext({
-<<<<<<< HEAD:src/components/Slides/index.tsx
-    loaderUrl: "build/receptor.loader.js",
-    dataUrl: "build/receptor.data",
-    frameworkUrl: "build/receptor.framework.js",
-    codeUrl: "build/receptor.wasm",
-  });
-
-
-const Slides = () =>  {
-    const {courseID} = useParams();
-    const data = useFetchSlidesByCourse(Number(courseID));
-    if(data !== "Loading..."){
-      console.log(JSON.stringify(data));
-      unityContext.send("SlideManager", "getData", JSON.stringify(data));
-    }
-    //console.log("UnityWindow: "+window.localStorage.getItem("loggedUserID"));
-    return( 
-        <>
-            <Header page=""/>
-            <div className="unity-container">
-                <Unity className="unity-canvas" unityContext={unityContext} />
-            </div>
-        </>
-    )
-};
-
-export default Slides;
-=======
   loaderUrl: "build/apolo.loader.js",
   dataUrl: "build/apolo.data",
   frameworkUrl: "build/apolo.framework.js",
@@ -44,7 +16,7 @@ export default Slides;
 });
 
 
-const UnityFrame = () => {
+const Slides = () => {
   const { courseID } = useParams();
   const data = useFetchSlidesByCourse(Number(courseID));
   const navigate = useNavigate();
@@ -86,8 +58,7 @@ const UnityFrame = () => {
   )
 };
 
-export default UnityFrame;
+export default Slides;
 
 
 
->>>>>>> dev:src/components/UnityFrame/index.tsx

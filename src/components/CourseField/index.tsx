@@ -3,6 +3,8 @@ import { ImgContainer, NombreCurso, CajaTexto, Container, Plus} from "./CourseFi
 import UserIMG from '../../images/User.svg';
 import { Link, useParams } from "react-router-dom";
 import PlusIMG from "../../images/Plus.svg";
+import {CREATE_COURSE} from "../../hooks/useCourseHooks"
+import { useMutation } from "@apollo/client";
 
 interface Props {
     callback: () => void;
@@ -12,7 +14,9 @@ const CourseField: React.FC<Props> = ({ callback }) => {
     const { courseID } = useParams();
     const [nombreCurso, setNombreCurso] = useState("");
     const [descripcionCurso, setDescripcionCurso] = useState("");
-    
+    const [createCourse] = useMutation(CREATE_COURSE);
+    let obj: any;
+
     const handleInputTXTArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setDescripcionCurso(e.currentTarget.value);
     }
@@ -55,9 +59,17 @@ const CourseField: React.FC<Props> = ({ callback }) => {
                     
                 />
             </Container>
-            <Plus onClick={handleBack}>
-                <img src={PlusIMG}/>
-            </Plus>
+            <form onClick={e => {
+                e.preventDefault();
+                createCourse({variables: {active: true, description: descripcionCurso, name: nombreCurso} })
+                .then(data => obj = data).then( () => {
+                    console.log(obj.data);
+                })
+            }}>
+                <Plus onClick={handleBack}>
+                    <img src={PlusIMG}/>
+                </Plus>
+            </form>
         </>
     )
 }

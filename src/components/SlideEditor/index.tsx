@@ -5,8 +5,10 @@ import PlusIMG from "../../images/Plus.svg";
 import ArrowBackIMG from "../../images/ArrowLeft.png";
 import ArrowFwdIMG from "../../images/ArrowRight.png";
 import TrashCan from "../../images/trash.svg";
-
+import {postSlides} from "../../hooks/useFetchSlides"
 import { useParams } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { useNavigate } from 'react-router-dom';
 
 interface Props{
     callback:()=>void;
@@ -24,6 +26,9 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
     const [answer3, setAnswer3] = useState("");
     const [answer4, setAnswer4] = useState("");
     const [correctAns, setCorrectAns] = useState(0);
+    const [uploadSlides] = useMutation(postSlides); 
+    var obj: any;
+    const navigate = useNavigate();
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const name = e.currentTarget.name;
@@ -288,12 +293,21 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
 
             { index === data.length -1 ?
                 <>
-                    <Container>
-                        <Guardar>Guardar</Guardar>
-                        <TrashButton onClick={handleTrashButton}>
-                            <img src={TrashCan}/>
-                        </TrashButton>
-                    </Container>
+                    <form onSubmit={e => {
+                        e.preventDefault();
+                        uploadSlides({variables: {params: data} })
+                        .then(data => obj = data).then( () => {
+                            console.log(obj.data);
+                            navigate('/courses');
+                        });
+                    }}>
+                        <Container>
+                            <Guardar>Guardar</Guardar>
+                            <TrashButton onClick={handleTrashButton}>
+                                <img src={TrashCan}/>
+                            </TrashButton>
+                        </Container>
+                    </form>
                 </>
                 : <></> 
             }

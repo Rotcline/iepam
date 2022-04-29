@@ -17,3 +17,10 @@ export const useCoursesHooks = () => {
     if (data) return data;
 };
 
+export const CREATE_COURSE = gql`
+  mutation CREATE_COURSE($active: Boolean!, $description: String!, $name: String!){
+    createCourse(active: $active, description: $description, name: $name){
+      id
+    }
+  }
+`;

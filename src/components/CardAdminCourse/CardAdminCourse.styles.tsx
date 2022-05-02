@@ -46,6 +46,10 @@ export const Content = styled.div `
 
 export const ButtonBox = styled.div`
     display:flex;
+    form{
+        flex-basis:50%;
+    }
+
 `;
 
 interface Props {
@@ -53,7 +57,7 @@ interface Props {
 }
 
 export const ButtonOptions = styled.button<Props>`
-    flex-basis: 50%;
+    width:100%;
     border:1px solid white;
     border-bottom-left-radius:${props => (props.position === 'Cross' ? '1vw' : '0')};
     border-bottom-right-radius:${props => (props.position === 'Check' ? '1vw' : '0')};

@@ -21,6 +21,6 @@ defmodule Api.Content.Slide do
   def changeset(slide, attrs) do
     slide
     |> cast(attrs, [:description, :order, :video, :question, :answer1, :answer2, :answer3, :answer4, :correct_ans])
-    |> validate_required([:description, :order, :video, :question, :answer1, :answer2, :answer3, :answer4, :correct_ans])
+    |> validate_required([:description, :order, :video, :question])
   end
 end

@@ -25,6 +25,7 @@ const UserData = () => {
 
     useEffect(() => {
         if (data !== "Loading...") {
+            console.log("sjaosald")
             if (data.user.name) { setNameField(data.user.name); }
             if (data.user.phone) { setPhone(data.user.phone); }
             if (data.user.address) { setAddress(data.user.address); }

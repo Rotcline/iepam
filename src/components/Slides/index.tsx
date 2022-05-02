@@ -9,19 +9,21 @@ import { VideoContainer } from "./UnityFrame.styles";
 
 
 const unityContext = new UnityContext({
-  loaderUrl: "build/avemaria.loader.js",
-  dataUrl: "build/avemaria.data",
-  frameworkUrl: "build/avemaria.framework.js",
-  codeUrl: "build/avemaria.wasm",
+  loaderUrl: "build/SlidesTestNew.loader.js",
+  dataUrl: "build/SlidesTestNew.data",
+  frameworkUrl: "build/SlidesTestNew.framework.js",
+  codeUrl: "build/SlidesTestNew.wasm",
 });
 
 
 const Slides = () => {
   const { courseID } = useParams();
-  const data = useFetchSlidesByCourse(Number(courseID));
   const navigate = useNavigate();
   const [video, setVideo] = useState("false");
   const [progress, setProgress] = useState(0);
+  const data = useFetchSlidesByCourse(Number(courseID));
+  console.log(data);
+
 
   useEffect(function () {
     unityContext.on("isVideo", function (video) {
@@ -29,13 +31,16 @@ const Slides = () => {
       console.log(video);
     });
   }, []);
-
+ 
   useEffect(function () {
     unityContext.on("iCanSend", function () {
-      console.log(JSON.stringify(data));
-      unityContext.send("SlideManager", "getData", JSON.stringify(data));
+      if (data !== "Loading..."){
+        console.log("Smn ahi te van los datos crac")
+        console.log(JSON.stringify(data));
+        unityContext.send("SlideManager", "getData", JSON.stringify(data));
+      }
     });
-  }, []);
+  }, [data]);
 
   useEffect(function () {
     unityContext.on("Close", function (progress) {
@@ -54,6 +59,12 @@ const Slides = () => {
       }
     }, 5000);
   }, []);*/
+
+  if (data === "Loading..."){
+    return(
+      <div>Loading...</div>
+    )
+  }
 
   return (
     <>

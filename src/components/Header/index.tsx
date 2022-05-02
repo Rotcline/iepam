@@ -3,6 +3,8 @@ import { ImgContainer, Logo, User, HeaderWrapper, Lock } from "./HeaderUser.styl
 import LogoIMG from "../../images/Logo.png";
 import UserIMG from "../../images/User.png";
 import LockIMG from "../../images/Lock.png";
+import LogoutIMG from "../../images/Logout.png";
+
 
 import { Link } from "react-router-dom";
 import { useGetUser } from "../../hooks/useFetchUser";
@@ -49,14 +51,22 @@ const Header: React.FC<Props> = ({page}) => {
                                 <Lock src={LockIMG} />
                             </Link>
                         }
+                        <Link to="/">
+                            <img src={LogoutIMG} />
+                        </Link>
                         <Link to="/edituser">
                             <User src={UserIMG} />
                         </Link>
                     </ImgContainer> 
                 :
-                    <Link to="/edituser">
-                        <User src={UserIMG} />
-                    </Link>
+                    <ImgContainer>
+                        <Link to="/">
+                            <img src = {LogoutIMG}/>
+                        </Link>
+                        <Link to="/edituser">
+                            <User src={UserIMG} />
+                        </Link>
+                    </ImgContainer>
                 }
             </HeaderWrapper>
         </>

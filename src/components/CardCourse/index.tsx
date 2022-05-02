@@ -12,6 +12,7 @@ import DefaultIMG7 from "../../images/def7.jpeg"
 import DefaultIMG8 from "../../images/def8.jpeg"
 import DefaultIMG9 from "../../images/def9.jpeg"
 import DefaultIMG10 from "../../images/def10.jpeg"
+import { useFetchSlidesByCourse } from "../../hooks/useFetchSlides";
 
 
 type Props = {
@@ -27,12 +28,13 @@ const CardCourse = ({ courseID, name, description }: Props) => {
     else if(courseID%10 === 3){DefImage = DefaultIMG3;}
     else if(courseID%10 === 4){DefImage = DefaultIMG4;}
     else if(courseID%10 === 5){DefImage = DefaultIMG5;}
-    else if(courseID%10 === 2){DefImage = DefaultIMG6;}
-    else if(courseID%10 === 2){DefImage = DefaultIMG7;} 
-    else if(courseID%10 === 2){DefImage = DefaultIMG8;} 
-    else if(courseID%10 === 2){DefImage = DefaultIMG9;}
-    else if(courseID%10 === 2){DefImage = DefaultIMG10;}
+    else if(courseID%10 === 6){DefImage = DefaultIMG6;}
+    else if(courseID%10 === 7){DefImage = DefaultIMG7;} 
+    else if(courseID%10 === 8){DefImage = DefaultIMG8;} 
+    else if(courseID%10 === 9){DefImage = DefaultIMG9;}
+    else if(courseID%10 === 0){DefImage = DefaultIMG10;}
     else{DefImage = DefaultIMG1;}
+
     return(
         <div>
             <Link to={`/${courseID}`}>

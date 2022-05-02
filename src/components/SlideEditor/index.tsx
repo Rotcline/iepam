@@ -15,6 +15,7 @@ interface Props{
 }
 
 const SlideEditor: React.FC<Props> = ({ callback }) => {
+    const { courseID } = useParams();
     const dataProto: { description: string, order: number, video: boolean, question: boolean, answer1: string, answer2: string, answer3: string, answer4: string, correctAns: number, courseID: number }[] = [];
     const [data, setData] = useState(dataProto);
     const [index, setIndex] = useState(0);
@@ -60,7 +61,7 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
         //Si el indice en el que estamos es el ultimo y no existe en el array se hace push
         if(index >= data.length){
             if(description !== ""){
-                data.push({ description: description, order: index, video: isVideo, question: isQuestion, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4, correctAns: correctAns, courseID: 1 })
+                data.push({ description: description, order: index, video: isVideo, question: isQuestion, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4, correctAns: correctAns, courseID: Number(courseID) })
                 console.log(data);
                 setDescription("");
                 setAnswer1("");
@@ -298,7 +299,7 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
                         uploadSlides({variables: {params: data}})
                         .then(data => obj = data).then( () => {
                             console.log(obj.data);
-                            navigate('/courses');
+                            navigate('/editcourses');
                         });
                     }}>
                         <Container>
@@ -316,9 +317,3 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
 }
 
 export default SlideEditor;
-
-/*
-<iframe width="420" height="315"
-    src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
-</iframe>
-*/

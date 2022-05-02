@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { ImgContainer, NombreCurso, CajaTexto, Container, Plus} from "./CourseField.styles";
+import React, { useEffect, useState } from "react";
+import { ImgContainer, NombreCurso, CajaTexto, Container, Plus } from "./CourseField.styles";
 import UserIMG from '../../images/User.svg';
 import { Link, useParams } from "react-router-dom";
 import PlusIMG from "../../images/Plus.svg";
-import {CREATE_COURSE} from "../../hooks/useCourseHooks"
+import { CREATE_COURSE, UPDATE_COURSE, useGetCourseByID } from "../../hooks/useCourseHooks"
 import { useMutation } from "@apollo/client";
 
 interface Props {
@@ -16,7 +16,16 @@ const CourseField: React.FC<Props> = ({ callback }) => {
     const [descripcionCurso, setDescripcionCurso] = useState("");
     const [createCourse] = useMutation(CREATE_COURSE);
     const [newCourse, isNewCourse] = useState(false);
+    var data: any;
+    data = useGetCourseByID(Number(courseID));
+    const [update] = useMutation(UPDATE_COURSE);
+    useEffect(() => {
+        if (data !== "Loading..." && data !== "Error") {
+            if (data.course.name) { setNombreCurso(data.course.name); }
+            if (data.course.description) { setDescripcionCurso(data.course.description); }
+        }
 
+    }, [data])
 
     let obj: any;
 
@@ -29,10 +38,10 @@ const CourseField: React.FC<Props> = ({ callback }) => {
     }
 
     const handleBack = () => {
-        if(nombreCurso !== "" && descripcionCurso !== ""){
+        if (nombreCurso !== "" && descripcionCurso !== "") {
             callback();
         }
-        else{
+        else {
             window.alert("Completa los datos solicitados");
         }
     }
@@ -45,7 +54,7 @@ const CourseField: React.FC<Props> = ({ callback }) => {
                 </ImgContainer>
             </Link>
             <Container>
-                <NombreCurso 
+                <NombreCurso
                     type="text"
                     placeholder="Nombre del curso"
                     name="nombrecurso"
@@ -53,30 +62,40 @@ const CourseField: React.FC<Props> = ({ callback }) => {
                     value={nombreCurso}
                     required
                 />
-                <CajaTexto 
+                <CajaTexto
                     name="descripcion"
                     placeholder="Descripción"
                     onChange={handleInputTXTArea}
                     value={descripcionCurso}
                     required
-                    
+
                 />
             </Container>
-            {courseID==="new"?
-            <form onClick={e => {
-                e.preventDefault();
-                createCourse({variables: {active: true, description: descripcionCurso, name: nombreCurso} })
-                .then(data => obj = data).then( () => {
-                    console.log(obj.data);
-                })
-            }}>
-                <Plus onClick={handleBack}>
-                    <img src={PlusIMG}/>
-                </Plus>
-            </form>
-                : <Plus onClick={handleBack}>
-                    <img src={PlusIMG} />
-                </Plus> }
+            {courseID === "new" ?
+                <form onClick={e => {
+                    e.preventDefault();
+                    createCourse({ variables: { active: true, description: descripcionCurso, name: nombreCurso } })
+                        .then(data => obj = data).then(() => {
+                            console.log(obj.data);
+                        })
+                }}>
+                    <Plus onClick={handleBack}>
+                        <img src={PlusIMG} />
+                    </Plus>
+                </form>
+                :
+                <form onClick={e => {
+                    e.preventDefault();
+                    update({ variables: { description: descripcionCurso, name: nombreCurso, id: Number(courseID) } })
+                        .then(data => obj = data).then(() => {
+                            console.log(obj.data);
+                        })
+                }}>
+                    <Plus onClick={handleBack}>
+                        <img src={PlusIMG} />
+                    </Plus>
+                </form>
+            }
         </>
     )
 }

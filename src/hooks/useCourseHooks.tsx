@@ -50,3 +50,11 @@ export const UPDATE_COURSE = gql`
     }
   }
 `;
+
+export const DELETE_COURSE = gql`
+  mutation DELETE_COURSE($id: ID! ){
+    deleteCourse(id: $id){
+      id
+    }
+  }
+`;

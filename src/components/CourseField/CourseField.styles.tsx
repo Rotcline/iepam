@@ -65,3 +65,48 @@ export const Plus = styled.button`
         cursor: pointer;
     }
 `;
+
+export const TrashButton = styled.button`
+    position:absolute;
+    border:none;
+    top:13vh;
+    right:13vw;
+    border-radius:100vw;
+    background-color: transparent;
+    img{
+        width:4vw;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+`;
+
+export const ArrowBack = styled.button`
+    position:absolute;
+    border:none;
+    top:46vh;
+    left:4vw;
+    border-radius:100vw;
+    background-color: transparent;
+    img{
+        width:6vw;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+`;
+
+export const ArrowForward = styled.button`
+    position:absolute;
+    border:none;
+    top:46vh;
+    right:4vw;
+    border-radius:100vw;
+    background-color: transparent;
+    img{
+        width:6vw;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+`;

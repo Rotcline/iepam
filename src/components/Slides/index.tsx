@@ -9,10 +9,10 @@ import { VideoContainer } from "./UnityFrame.styles";
 
 
 const unityContext = new UnityContext({
-  loaderUrl: "build/SlidesTestNew.loader.js",
-  dataUrl: "build/SlidesTestNew.data",
-  frameworkUrl: "build/SlidesTestNew.framework.js",
-  codeUrl: "build/SlidesTestNew.wasm",
+  loaderUrl: "build/test/SlidesTestNew.loader.js",
+  dataUrl: "build/test/SlidesTestNew.data",
+  frameworkUrl: "build/test/SlidesTestNew.framework.js",
+  codeUrl: "build/test/SlidesTestNew.wasm",
 });
 
 

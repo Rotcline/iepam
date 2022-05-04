@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ImgContainer, NombreCurso, CajaTexto, Container, Plus, TrashButton, ArrowForward } from "./CourseField.styles";
+import { ImgContainer, NombreCurso, CajaTexto, Container, Plus, TrashButton, ArrowForward, Title } from "./CourseField.styles";
 import UserIMG from '../../images/User.svg';
 import { Link, useParams, useNavigate } from "react-router-dom";
 import PlusIMG from "../../images/Plus.svg";
@@ -59,6 +59,7 @@ const CourseField: React.FC<Props> = ({ callback }) => {
                     <img src={UserIMG} />
                 </ImgContainer>
             </Link>
+            <Title>EDITAR CURSO</Title>
             <form onSubmit={e => {
                 e.preventDefault();
                 borrarCurso({variables: {id: courseID}})

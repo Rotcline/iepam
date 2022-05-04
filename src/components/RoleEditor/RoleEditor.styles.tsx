@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    margin-top:20vh;
+    margin-top:10vh;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -17,6 +17,16 @@ export const Wrapper = styled.div`
         margin:5vh;
         font-size: var(--fontSuperBig)
     }
+`;
+
+export const Title = styled.div `
+    color:var(--purple);
+    font-family: "OpenSansBold";
+    font-size:var(--fontSuperBig);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 8vh;
 `;
 
 export const ButtonContainer = styled.div `

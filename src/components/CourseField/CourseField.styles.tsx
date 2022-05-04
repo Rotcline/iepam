@@ -5,7 +5,7 @@ export const Container = styled.div `
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
-    margin-top:15vh;
+    margin-top:10vh;
 `;
 
 export const ImgContainer = styled.div `
@@ -110,3 +110,14 @@ export const ArrowForward = styled.button`
         cursor: pointer;
     }
 `;
+
+export const Title = styled.div `
+    color:var(--purple);
+    font-family: "OpenSansBold";
+    font-size:var(--fontSuperBig);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 8vh;
+`;
+

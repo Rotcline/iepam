@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const Title = styled.div `
+    color:var(--purple);
+    font-family: "OpenSansBold";
+    font-size:var(--fontSuperBig);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 8vh;
+`;
 
 export const Container = styled.div `
     display:flex;
@@ -15,7 +24,7 @@ export const RadioContainer = styled.div `
     margin-left:8vw;
     flex-wrap:wrap;
     label{
-        margin-top:8vw;
+        margin-top:4vw;
         font-size:var(--fontSuperBig);
         color:var(--purple);
         font-family:"OpenSansBold";
@@ -27,7 +36,7 @@ export const RadioButton = styled.input`
     border: 0px;
     width: 6vw;
     height: 6vh;
-    margin-top:8vw;
+    margin-top:4vw;
     accent-color: var(--purple);
 `;
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Header from "../Header";
-import { ButtonContainer, Container, Cross, Save, SelectorWrapper, UserInCourse } from "./CourseMembersEditor.styles";
+import { ButtonContainer, Container, Cross, Save, SelectorWrapper, UserInCourse, Title } from "./CourseMembersEditor.styles";
 import CrossIMG from "../../images/Cross.svg"
 import { useGetUsers } from "../../hooks/useFetchUser";
 
@@ -22,6 +22,7 @@ const CourseMembersEditor = () => {
     return(
         <>
             <Header page=""/>
+            <Title>EDITAR MIEMBROS DEL CURSO</Title>
             <Link to={`/editcourses/${courseID}`}>
                 <Cross src={CrossIMG} />
             </Link>

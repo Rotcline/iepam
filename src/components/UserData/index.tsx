@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Header from "../Header"
-import { Container, Cross, FormXP, FormLevel, FormName, FormPhone, ButtonContainer, Save } from "./UserData.styles";
+import { Container, Cross, FormXP, FormLevel, FormName, FormPhone, ButtonContainer, Save, Title, CajaTexto } from "./UserData.styles";
 import CrossIMG from "../../images/Cross.svg"
 
 import { Link } from "react-router-dom";
@@ -58,6 +58,7 @@ const UserData = () => {
     return (
         <>
             <Header page="" />
+            <Title>TUS DATOS</Title>
             <Container>
                 <Link to="/courses">
                     <Cross src={CrossIMG} alt="" />
@@ -95,7 +96,7 @@ const UserData = () => {
                 </FormLevel>
 
                 <FormXP>
-                    <textarea
+                    <CajaTexto
                         value={laboralXP}
                         name='laboralXP'
                         onChange={handleTextArea}

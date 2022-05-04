@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGetUsers } from "../../hooks/useFetchUser";
 import Header from "../Header";
-import { ButtonContainer, Cross, Save, Wrapper } from "./RoleEditor.styles";
+import { ButtonContainer, Cross, Save, Title, Wrapper } from "./RoleEditor.styles";
 import { UPDATE } from "../../hooks/useFetchUser";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
@@ -27,6 +27,7 @@ const RoleEditor = () => {
     return (
         <>
             <Header page=""/>
+            <Title>EDITOR DE ROLES</Title>
             <Link to="/editcourses">
                 <Cross src={CrossIMG} alt=""/>
             </Link>

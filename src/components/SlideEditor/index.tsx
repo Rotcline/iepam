@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, RadioContainer, RadioButton, Plus, ArrowBack, URLInput, TextBox, Question, Answer, RadioButtonQuestion, RadioContainerQuestion, ArrowForward, Guardar, TrashButton } from "./SlideEditor.styles";
+import { Container, RadioContainer, RadioButton, Plus, ArrowBack, URLInput, TextBox, Question, Answer, RadioButtonQuestion, RadioContainerQuestion, ArrowForward, Guardar, TrashButton, Title } from "./SlideEditor.styles";
 
 import PlusIMG from "../../images/Plus.svg";
 import ArrowBackIMG from "../../images/ArrowLeft.png";
@@ -178,6 +178,7 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
 
     return (
         <>
+            <Title>EDITOR DE DIAPOSITVAS</Title>
             <Container>
                 <RadioContainer>
                     <RadioButton type="radio" name="option" id={"Format0"} checked={!isVideo && !isQuestion} onChange={handleInput} />

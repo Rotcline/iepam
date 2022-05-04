@@ -69,3 +69,12 @@ export const UserInCourse = styled.div`
     font-family: 'OpenSansRegular';
 `;
 
+export const Title = styled.div `
+    color:var(--purple);
+    font-family: "OpenSansBold";
+    font-size:var(--fontSuperBig);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 8vh;
+`;

@@ -304,12 +304,15 @@ const SlideEditor: React.FC<Props> = ({ callback }) => {
                         });
                     }}>
                         <Container>
-                            <Guardar>Guardar</Guardar>
+                            <Guardar type="submit">Guardar</Guardar>
+                        </Container>
+                    </form>
+                        <Container>
                             <TrashButton onClick={handleTrashButton}>
                                 <img src={TrashCan}/>
                             </TrashButton>
                         </Container>
-                    </form>
+                    
                 </>
                 : <></> 
             }

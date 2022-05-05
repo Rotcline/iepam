@@ -67,5 +67,8 @@ export const ButtonOptions = styled.button<Props>`
         width:3vw;
         height:5vh;
     }
+    &:hover{
+        cursor: pointer;
+    }
 `;
 

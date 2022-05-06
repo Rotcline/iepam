@@ -40,6 +40,8 @@ defmodule ApiWeb.Schema do
     import_fields(:create_slide)
     import_fields(:update_slide)
     import_fields(:delete_slide)
+    import_fields(:create_slides)
+
 
     import_fields(:create_user_track)
     import_fields(:update_user_track)

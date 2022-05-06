@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { ImgContainer, Logo, User, HeaderWrapper, Lock, UserContainer } from "./HeaderUser.styles";
+import { ImgContainer, Logo, User, HeaderWrapper, Lock } from "./HeaderUser.styles";
 import LogoIMG from "../../images/Logo.png";
 import UserIMG from "../../images/User.png";
 import LockIMG from "../../images/Lock.png";
+import LogoutIMG from "../../images/Logout.png";
+
 
 import { Link } from "react-router-dom";
 import { useGetUser } from "../../hooks/useFetchUser";
@@ -11,12 +13,9 @@ interface Props {
   page: string;
 }
 
-
 const Header: React.FC<Props> = ({page}) => {
     var userID = Number(window.localStorage.getItem("loggedUserID"));
-    //console.log(userID);
     let data = useGetUser(userID);
-    //console.log(data);
     if (data === "Loading..."){ return <div>Loading...</div> }
     if(data === "Error"){
         return (
@@ -52,16 +51,22 @@ const Header: React.FC<Props> = ({page}) => {
                                 <Lock src={LockIMG} />
                             </Link>
                         }
+                        <Link to="/">
+                            <img src={LogoutIMG} />
+                        </Link>
                         <Link to="/edituser">
                             <User src={UserIMG} />
                         </Link>
                     </ImgContainer> 
                 :
-                    <UserContainer>
+                    <ImgContainer>
+                        <Link to="/">
+                            <img src = {LogoutIMG}/>
+                        </Link>
                         <Link to="/edituser">
                             <User src={UserIMG} />
                         </Link>
-                    </UserContainer>
+                    </ImgContainer>
                 }
             </HeaderWrapper>
         </>

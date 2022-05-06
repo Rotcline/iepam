@@ -25,6 +25,12 @@ export const useFetchSlides = () => {
     if (data) return data;
 };
 
+export const postSlides = gql`
+  mutation postSlides($params:  [SlideParams]!){
+    createSlides(params: $params)
+  }
+`
+
 export const useFetchSlidesByCourse = (courseId :number) => {
     const GET_SLIDES_BY_COURSE = gql`
       query getSlidesByCourseId( $courseId: ID! ){
@@ -49,6 +55,3 @@ export const useFetchSlidesByCourse = (courseId :number) => {
     if (error) return `Error! ${error.message}`;
     if (data) return data;
 };
-
-
-

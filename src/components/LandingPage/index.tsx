@@ -57,7 +57,7 @@ const LandingPage = () => {
                             value={email}
                             name='email'
                             onChange={handleInput} 
-                            placeholder="Correo electronico"/>
+                            placeholder="Correo electrónico"/>
                     </Email>
 
                     <Password>

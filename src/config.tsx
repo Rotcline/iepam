@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:4010/api/';
+const API_URL = 'http://localhost:4008/api/';
 const API_KEY = '';
 
 const SEARCH_BASE_URL = `${API_URL}graphiql`;

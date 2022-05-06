@@ -7,7 +7,20 @@ defmodule ApiWeb.Schema.Content do
   object :slide do
     field :id, :id
     field :description, :string
-    field :order, :string
+    field :order, :integer
+    field :video, :boolean
+    field :question, :boolean
+    field :answer1, :string
+    field :answer2, :string
+    field :answer3, :string
+    field :answer4, :string
+    field :correct_ans, :integer
+    field :course_id, :integer
+  end
+
+  input_object :slide_params do
+    field :description, :string
+    field :order, :integer
     field :video, :boolean
     field :question, :boolean
     field :answer1, :string
@@ -35,7 +48,7 @@ defmodule ApiWeb.Schema.Content do
   object :create_slide do
     field :create_slide, :slide do
       arg(:description, non_null(:string))
-      arg(:order, non_null(:string))
+      arg(:order, non_null(:integer))
       arg(:video, non_null(:boolean))
       arg(:question, non_null(:boolean))
       arg(:answer1, non_null(:string))
@@ -48,11 +61,18 @@ defmodule ApiWeb.Schema.Content do
     end
   end
 
+  object :create_slides do
+    field :create_slides, :string do
+      arg(:params, non_null(list_of(:slide_params)))
+      resolve(&Resolvers.Content.create_slides/2)
+    end
+  end
+
   object :update_slide do
     field :update_slide, :slide do
       arg(:id, non_null(:id))
       arg(:description, :string)
-      arg(:order, :string)
+      arg(:order, :integer)
       arg(:video, :boolean)
       arg(:question, :boolean)
       arg(:answer1, :string)

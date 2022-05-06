@@ -2,13 +2,13 @@ import { createHashHistory } from "history";
 import styled from "styled-components";
 
 export const Container = styled.div`
-display: flex;
-            width: 100vw;
-            height: 10vh;
-            justify-content: space-around;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100vw;
+    display: flex;
+    width: 100vw;
+    margin-top: 5vh;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
 `;
 
 
@@ -19,7 +19,7 @@ export const FormName = styled.div`
     input
     {
         border-color: var(--purple);
-        width:38vw;
+        width: 31vw;
         border-radius: 24px;
         font-size: 25px;
         padding: 10px;
@@ -34,8 +34,7 @@ export const FormPhone = styled.div`
     flex-basis:100%;
     align-items: center;
     text-align: center;
-    input
-    {
+    input{
         border-color: var(--purple);
         flex-basis:100%;
         border-radius: 24px;
@@ -43,6 +42,7 @@ export const FormPhone = styled.div`
         padding: 10px;
         text-align: center;
         align-items: center;
+        width: 15vw;
     }
 `;
 
@@ -61,6 +61,7 @@ export const FormLevel = styled.div`
         padding: 10px;
         text-align: center;
         align-items: center;
+        width: 15vw;
     }
 `;
 
@@ -71,42 +72,25 @@ export const FormXP = styled.div`
     flex-basis: 100%;
     align-items: center;
     text-align: center;
-    textarea
-    {
-        border-color: var(--purple);
-        width: 550px;
-        height: 100px; 
-        flex-basis:100%;
-        border-radius: 24px;
-        font-size: 25px;
-        padding: 10px;
-        text-align: center;
-        align-items: center;
-        font-family: Arial, Helvetica, sans-serif;
-        padding-top: 7%;
-        border-width: 2px;
-    }
 `;
 
-
-export const Cross = styled.button`
-    outline: 0px;
-    margin: 0px;
-    background-color: white;
-    border: 0px;
-    img
-    {
-        width: 6vw;
-        height: 4vh;
-    }
+export const CajaTexto = styled.textarea `
+    border: 2px solid var(--purple);
+    border-radius: 20px;
+    padding: 1vh 1.5vw;
+    font-size: 1.5em;
+    width: 28.5vw;
+    height: 20vh;
+    word-break: break-word; 
 `;
 
-export const Close = styled.div`
-    flex-basis: 100%;
-    text-align: right;
-    margin-right: 2vw;
-    margin-top: 5vh;
+export const Cross = styled.img `
+    position:absolute;
+    width:3vw;
+    top:15vh;
+    right:6vw;
 `;
+
 
 export const ButtonContainer = styled.div `
     display:flex;
@@ -129,3 +113,14 @@ export const Save = styled.button `
         cursor: pointer;
     }
 `;
+
+export const Title = styled.div `
+    color:var(--purple);
+    font-family: "OpenSansBold";
+    font-size:var(--fontSuperBig);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 8vh;
+`;
+

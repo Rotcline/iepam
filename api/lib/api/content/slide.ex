@@ -9,7 +9,7 @@ defmodule Api.Content.Slide do
     field :answer4, :string
     field :correct_ans, :integer
     field :description, :string
-    field :order, :string
+    field :order, :integer
     field :question, :boolean, default: false
     field :video, :boolean, default: false
     belongs_to :course, Api.Subject.Course, foreign_key: :course_id
@@ -21,6 +21,6 @@ defmodule Api.Content.Slide do
   def changeset(slide, attrs) do
     slide
     |> cast(attrs, [:description, :order, :video, :question, :answer1, :answer2, :answer3, :answer4, :correct_ans])
-    |> validate_required([:description, :order, :video, :question, :answer1, :answer2, :answer3, :answer4, :correct_ans])
+    |> validate_required([:description, :order, :video, :question])
   end
 end

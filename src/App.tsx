@@ -5,25 +5,24 @@ import {GlobalStyle} from './GlobalStyle';
 import GlobalFonts from './fonts/fonts';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
-import EditCourseData from './components/EditCourseData';
-import UnityFrame from './components/UnityFrame';
+import EditCourseData from './components/CourseEditor';
+import UnityFrame from './components/Slides';
 import LandingPage from './components/LandingPage';
-import Courses from './components/Courses';
+import Courses from './components/UserCourses';
 import UserData from './components/UserData';
-import EditCourses from './components/EditCourses';
+import EditCourses from './components/AdminCourses';
 
 import { SEARCH_BASE_URL } from "./config";
 
 import UserProvider from './context';
-
 
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider
 } from "@apollo/client";
-import EditAdmin from './components/EditAdmin';
-import EditMembers from './components/EditMembers';
+import EditAdmin from './components/RoleEditor';
+import EditMembers from './components/CourseMembersEditor';
 
 
 const client = new ApolloClient({

@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const VideoContainer = styled.iframe`
     position:absolute;
-    top:30vh;
+    top:27vh;
     left:25vw;
     width:50vw;
-    height:50vh;
+    height:53.5vh;
 
 `;
